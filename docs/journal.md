@@ -13,3 +13,16 @@ Tätigkeiten:
 - Arbeitsjournal aufgesetzt
 - Projektbeschreibung aufgesetzt und geschrieben
 - Diese Markdowns erstellt, sodass die Dokumentationen ebenfalls unter Versionskontrolle stehen
+
+## 23.02.2024
+Stunden: 10
+
+Tätigkeiten:
+
+- TODO
+
+
+
+
+## Total
+Stunden: 
