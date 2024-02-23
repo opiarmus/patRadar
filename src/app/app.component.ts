@@ -23,5 +23,5 @@ const app = initializeApp(firebaseConfig);
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'patRadar-angular';
+  title = 'PatRadar';
 }
