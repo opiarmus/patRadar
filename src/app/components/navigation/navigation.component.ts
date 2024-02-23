@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { APP_TITLE } from "../../shared/constants";
 
 @Component({
   selector: 'app-navigation',
@@ -6,6 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './navigation.component.css'
 })
 export class NavigationComponent {
-  title = "PatRadar";
+  title = APP_TITLE;
 
 }
