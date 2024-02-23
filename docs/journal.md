@@ -18,7 +18,6 @@ Tätigkeiten:
 Stunden: 10
 
 Tätigkeiten:
-
 - TODO
 
 

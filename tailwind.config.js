@@ -23,6 +23,11 @@ module.exports = {
         DEFAULT: '#78716c',
         dark: '#292524',
         darkest: '#0c0a09',
+      },
+      red: {
+        light: '#fca5a5',
+        DEFAULT: '#dc2626',
+        dark: '#991b1b',
       }
     },
     fontFamily: {
@@ -39,6 +44,8 @@ module.exports = {
       }
     }
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 }
 
