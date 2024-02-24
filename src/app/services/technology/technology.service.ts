@@ -13,6 +13,11 @@ export class TechnologyService {
     return this.technologies;
   }
 
+  getTechnology(id: number): Technology | null {
+    const technology = this.technologies.find(tech => tech.id === id);
+    return technology ?? null;
+  }
+
   addTechnology(technology: Technology): void {
     this.technologies.push(technology);
   }
