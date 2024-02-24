@@ -11,6 +11,7 @@ import { ViewerComponent } from './pages/viewer/viewer.component';
 import { TechnologyFormComponent } from './components/technology-form/technology-form.component';
 import { TechnologyListComponent } from './components/technology-list/technology-list.component';
 import { TechnologyDetailDialogComponent } from './components/technology-detail-dialog/technology-detail-dialog.component';
+import { LocalDatePipe } from './shared/pipes/local-date.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { TechnologyDetailDialogComponent } from './components/technology-detail-
     ViewerComponent,
     TechnologyFormComponent,
     TechnologyListComponent,
-    TechnologyDetailDialogComponent
+    TechnologyDetailDialogComponent,
+    LocalDatePipe
   ],
   imports: [
     BrowserModule,

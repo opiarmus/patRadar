@@ -8,11 +8,11 @@
       <button class="text-gray hover:text-gray-dark" (click)="onCloseDialog()">Close</button>
     </div>
     <p class="text-gray-dark mb-4">{{ technology.description }}</p>
-    <p class="text-gray mb-4">{{ technology.classification }}</p>
+    <p class="text-gray mb-4">Our assessment:<br>{{ technology.classification }}</p>
     <p class="text-indigo-dark">Category: {{ Category[technology.category] }}</p>
     <p class="text-amber-dark">Ring: {{ Ring[technology.ring] }}</p>
     <div class="flex mt-4 justify-between">
-      <p class="text-gray text-sm font-thin">Created At: {{ technology.createdAt | date }}</p>
+      <p class="text-gray text-sm font-thin">Created At: {{ technology.createdAt | localDate }}</p>
       <p class="text-gray text-sm font-thin">Created By: {{ technology.creator.username  }}</p>
     </div>
   </div>

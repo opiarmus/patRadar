@@ -21,7 +21,4 @@ export class TechnologyListComponent {
   selectTechnology(tech: Technology) {
     this.technologySelected.emit(tech);
   }
-  getShortDateString(date: Date) {
-    return date.toLocaleDateString('de-CH');
-  }
 }
