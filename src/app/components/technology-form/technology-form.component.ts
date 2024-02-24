@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import {Category, CategoryLabels, DUMMY_TECHS, Ring, RingLabels, Technology} from "../../shared/types/technology.types";
+import {Category, CategoryLabels, Ring, RingLabels, Technology} from "../../shared/types/technology.types";
 import {DUMMY_USERS} from "../../shared/types/user.types";
-import {SnackbarService} from "../../services/snackbar.service";
+import {SnackbarService} from "../../services/snackbar/snackbar.service";
+import {TechnologyService} from "../../services/technology/technology.service";
 
 interface FormValues {
   name: string,
@@ -38,7 +39,8 @@ export class TechnologyFormComponent {
   submitted = false;
 
   constructor(private formBuilder: FormBuilder,
-              private snackbarService: SnackbarService) {  }
+              private snackbarService: SnackbarService,
+              private technologyService: TechnologyService) {  }
 
   ngOnInit() {
     this.technologyForm = this.formBuilder.group({
@@ -57,7 +59,7 @@ export class TechnologyFormComponent {
       this.snackbarService.show('The form is invalid.');
       return;
     }
-    DUMMY_TECHS.push(this.getTechnologyFromFormValues(data));
+    this.technologyService.addTechnology(this.getTechnologyFromFormValues(data));
     this.technologyForm.reset(this.preFilledForm);
     this.submitted = false;
     this.snackbarService.show('New technology created!');
@@ -73,7 +75,7 @@ export class TechnologyFormComponent {
       description: values.description,
       category: parseInt(values.category) as Category,
       name: values.name,
-      id: DUMMY_TECHS.reduce((max, tech) => {
+      id: this.technologyService.getTechnologies().reduce((max, tech) => {
         return tech.id > max ? tech.id : max;
       }, 0) + 1
     };
