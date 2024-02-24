@@ -69,4 +69,11 @@ export const DUMMY_TECHS: Technology[] = [
     createdAt: new Date('2024-01-23'),
     published: false,
   },
+  { id: 5, name: 'Short Tech', category: Category.Languages, ring: Ring.Hold,
+    description: 'This is just short.',
+    classification: 'Brilliant!',
+    creator: DUMMY_USERS[0],
+    createdAt: new Date('2023-11-05'),
+    published: true,
+  },
 ]

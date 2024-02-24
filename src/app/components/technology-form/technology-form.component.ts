@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import {Category, CategoryLabels, DUMMY_TECHS, Ring, RingLabels, Technology} from "../../shared/types/technology.types";
 import {DUMMY_USERS} from "../../shared/types/user.types";
+import {SnackbarService} from "../../services/snackbar.service";
 
 interface FormValues {
   name: string,
@@ -25,10 +26,19 @@ export class TechnologyFormComponent {
   // @ts-ignore
   rings: Ring[] = Object.values(Ring).filter(value => typeof value === 'number');
   ringLabels = RingLabels;
+  preFilledForm = {
+    name: '',
+    category: Category.Tools,
+    ring: Ring.NotAssigned,
+    description: '',
+    classification: '',
+    publish: false,
+  }
 
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder) {  }
+  constructor(private formBuilder: FormBuilder,
+              private snackbarService: SnackbarService) {  }
 
   ngOnInit() {
     this.technologyForm = this.formBuilder.group({
@@ -43,28 +53,30 @@ export class TechnologyFormComponent {
 
   onSubmit(data: FormValues) {
     this.submitted = true;
-    console.log('trying to submit form with following: ', data);
     if (this.technologyForm.invalid) {
-      console.log('form is invalid');
+      this.snackbarService.show('The form is invalid.');
       return;
     }
-    const newTech: Technology = {
-      published: data.publish,
+    DUMMY_TECHS.push(this.getTechnologyFromFormValues(data));
+    this.technologyForm.reset(this.preFilledForm);
+    this.submitted = false;
+    this.snackbarService.show('New technology created!');
+  }
+
+  private getTechnologyFromFormValues(values: FormValues): Technology {
+    return {
+      published: values.publish,
       createdAt: new Date(),
       creator: DUMMY_USERS[0],
-      classification: data.classification,
-      ring: parseInt(data.ring) as Ring,
-      description: data.description,
-      category: parseInt(data.category) as Category,
-      name: data.name,
+      classification: values.classification,
+      ring: parseInt(values.ring) as Ring,
+      description: values.description,
+      category: parseInt(values.category) as Category,
+      name: values.name,
       id: DUMMY_TECHS.reduce((max, tech) => {
         return tech.id > max ? tech.id : max;
-      }, 0)
-    }
-
-    DUMMY_TECHS.push(newTech);
-    console.log('form submitted with new tech: ', newTech);
-    console.log('all the dummies: ', DUMMY_TECHS);
+      }, 0) + 1
+    };
   }
 
 }

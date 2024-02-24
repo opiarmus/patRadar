@@ -12,6 +12,7 @@ import { TechnologyFormComponent } from './components/technology-form/technology
 import { TechnologyListComponent } from './components/technology-list/technology-list.component';
 import { TechnologyDetailDialogComponent } from './components/technology-detail-dialog/technology-detail-dialog.component';
 import { LocalDatePipe } from './shared/pipes/local-date.pipe';
+import { SnackbarComponent } from './components/snackbar/snackbar.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LocalDatePipe } from './shared/pipes/local-date.pipe';
     TechnologyFormComponent,
     TechnologyListComponent,
     TechnologyDetailDialogComponent,
-    LocalDatePipe
+    LocalDatePipe,
+    SnackbarComponent
   ],
   imports: [
     BrowserModule,
