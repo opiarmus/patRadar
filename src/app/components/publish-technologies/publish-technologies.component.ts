@@ -8,12 +8,12 @@ import {TechnologyService} from "../../services/technology/technology.service";
   styleUrl: './publish-technologies.component.css'
 })
 export class PublishTechnologiesComponent {
-  unpublishedTechnologies: Technology[] = [];
+  technologies: Technology[] = [];
 
   constructor(private technologyService: TechnologyService) {  }
 
   ngOnInit(): void {
-    this.unpublishedTechnologies = this.technologyService.getTechnologies().filter(tech => !tech.published);
+    this.technologies = this.technologyService.getTechnologies();
   }
 
 }
