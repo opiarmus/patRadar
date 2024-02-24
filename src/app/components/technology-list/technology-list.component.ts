@@ -17,7 +17,10 @@ export class TechnologyListComponent {
   constructor(private technologyService: TechnologyService) {  }
 
   ngOnInit() {
-    this.technologies = this.technologyService.getTechnologies().filter(t => t.published)
+    this.technologies = this.technologyService.getTechnologies()
+      .filter(t => t.published)
+      .sort((a, b) => a.category < b.category ? -1 : 1)
+      .sort((a, b) => a.ring < b.ring ? -1 : 1);
   }
   selectTechnology(tech: Technology) {
     this.technologySelected.emit(tech);
