@@ -1,1 +1,9 @@
-<p>viewer works!</p>
+<div class="mx-auto max-w-4xl">
+  <h1 class="mb-5 pb-3 border-b border-gray-light">Technology Viewer</h1>
+  <app-technology-list (technologySelected)="onTechnologySelected($event)"></app-technology-list>
+  <app-technology-detail-dialog
+    *ngIf="selectedTechnology"
+    [technology]="selectedTechnology"
+    (closeDialog)="closeTechnologyDialog()"
+  ></app-technology-detail-dialog>
+</div>

@@ -9,6 +9,8 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { AdminComponent } from './pages/admin/admin.component';
 import { ViewerComponent } from './pages/viewer/viewer.component';
 import { TechnologyFormComponent } from './components/technology-form/technology-form.component';
+import { TechnologyListComponent } from './components/technology-list/technology-list.component';
+import { TechnologyDetailDialogComponent } from './components/technology-detail-dialog/technology-detail-dialog.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { TechnologyFormComponent } from './components/technology-form/technology
     NavigationComponent,
     AdminComponent,
     ViewerComponent,
-    TechnologyFormComponent
+    TechnologyFormComponent,
+    TechnologyListComponent,
+    TechnologyDetailDialogComponent
   ],
   imports: [
     BrowserModule,
