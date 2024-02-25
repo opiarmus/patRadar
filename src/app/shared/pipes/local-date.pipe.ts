@@ -5,8 +5,13 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class LocalDatePipe implements PipeTransform {
 
-  transform(value: Date, dateFormat: string = 'de-CH'): string {
-    return value.toLocaleDateString(dateFormat);
+  transform(value: any, dateFormat: string = 'de-CH'): string {
+    if (value == typeof Date) {
+      return value.toLocaleDateString(dateFormat);
+    } else {
+      const date = new Date(value);
+      return date.toLocaleDateString(dateFormat);
+    }
   }
 
 }

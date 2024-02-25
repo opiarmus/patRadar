@@ -14,6 +14,7 @@ import { TechnologyDetailDialogComponent } from './components/technology-detail-
 import { LocalDatePipe } from './shared/pipes/local-date.pipe';
 import { SnackbarComponent } from './components/snackbar/snackbar.component';
 import { PublishTechnologiesComponent } from './components/publish-technologies/publish-technologies.component';
+import { TextAbbrPipe } from './shared/pipes/text-abbr.pipe';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PublishTechnologiesComponent } from './components/publish-technologies/
     TechnologyDetailDialogComponent,
     LocalDatePipe,
     SnackbarComponent,
-    PublishTechnologiesComponent
+    PublishTechnologiesComponent,
+    TextAbbrPipe
   ],
   imports: [
     BrowserModule,

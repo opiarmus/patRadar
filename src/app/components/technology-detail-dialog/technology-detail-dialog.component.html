@@ -2,10 +2,10 @@
   <div class="bg-gray-lightest rounded-lg shadow-md p-6">
     <div class="flex justify-between mb-4">
       <h2>
-        <span class="mr-1 text-gray font-extralight">#{{ technology.id }}</span>
         {{ technology.name }}
+        <span class="ml-1 text-xs text-gray font-extralight">#{{ technology._id }}</span>
       </h2>
-      <button class="text-gray hover:text-gray-dark" (click)="onCloseDialog()">Close</button>
+      <button class="ml-2 text-gray hover:text-gray-dark" (click)="onCloseDialog()">Close</button>
     </div>
     <p class="text-gray-dark mb-4">{{ technology.description }}</p>
     <p *ngIf="technology.classification" class="text-gray mb-4">Our assessment:<br>{{ technology.classification }}</p>
@@ -13,7 +13,7 @@
     <p class="text-amber-dark">Ring: {{ Ring[technology.ring] }}</p>
     <div class="flex mt-4 justify-between">
       <p class=" mr-3 text-gray text-sm font-thin">Created At: {{ technology.createdAt | localDate }}</p>
-      <p class="text-gray text-sm font-thin">Created By: {{ technology.creator.username  }}</p>
+      <p class="text-gray text-sm font-thin">Created By: {{ technology.creatorName  }}</p>
     </div>
   </div>
 </div>
