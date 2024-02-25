@@ -35,8 +35,31 @@ Grund für die Verwendung war der API-Key von Firebase, den ich nicht im Repo ha
 Das Backend und die DB kommen erst noch.
 - IntelliJ Spell-Check konfiguriert, sodass Deutsch nicht als Tippfehler angezeigt wird
 
+## 24.02.2024
+Stunden: 12
+
+Tätigkeiten:
+- Page für den Viewer hinzugefügt
+- Detailansicht für die Technologien hinzugefügt
+- Custom Pipe erstellt für die Anzeige von Daten
+- Snackbar-Komponente erstellt, um dem Benutzer Feedback zu geben.
+Z.B. wird nach dem erfolgreichen Erstellen einer neuen Technologie 
+eine entsprechende Meldung angezeigt. Snackbar musste eigens erstellt werden, 
+da ich nicht mit Angular Material arbeiten will.
+- Komponente zum Publizieren von unpublizierten Technologien erstellt
+- Diverse Modernisierungen im Design (z.B. Header und Navigation)
+- Technologie-Detailansicht umgeschrieben, sodass direkt auf eine Detailansicht 
+geroutet werden kann. Da ich die Details in einem Dialog anzeige und keine separate 
+Page dafür habe, musste ich hier eine Lösung finden.
+- Technologien in Viewer nach Kategorien strukturiert und nach Maturität sortiert
+
+## 25.02.2024
+Stunden: 12
+
+Tätigkeiten:
+- Node.js Webserver erstellt für das Backend
 
 
 
 ## Total
-Stunden: 18
+Stunden: 30
