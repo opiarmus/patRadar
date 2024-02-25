@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import {Category, CategoryLabels, Ring, RingLabels, Technology} from "../../shared/types/technology.types";
 import {SnackbarService} from "../../services/snackbar/snackbar.service";
 import {TechnologyService} from "../../services/technology/technology.service";
+import {faPlus} from "@fortawesome/free-solid-svg-icons/faPlus";
 
 interface FormValues {
   name: string,
@@ -36,6 +37,7 @@ export class TechnologyFormComponent {
   }
 
   submitted = false;
+  panelOpen: boolean = false;
 
   constructor(private formBuilder: FormBuilder,
               private snackbarService: SnackbarService,
@@ -87,4 +89,5 @@ export class TechnologyFormComponent {
     };
   }
 
+  protected readonly faPlus = faPlus;
 }

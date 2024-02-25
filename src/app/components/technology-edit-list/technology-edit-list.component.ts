@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {Technology} from "../../shared/types/technology.types";
 import {TechnologyService} from "../../services/technology/technology.service";
+import {faPenToSquare} from "@fortawesome/free-regular-svg-icons";
 
 @Component({
   selector: 'app-technology-edit-list',
@@ -34,4 +35,5 @@ export class TechnologyEditListComponent {
     );
   }
 
+  protected readonly faPenToSquare = faPenToSquare;
 }

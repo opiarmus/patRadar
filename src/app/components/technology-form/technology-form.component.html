@@ -1,85 +1,92 @@
 <form [formGroup]="technologyForm" (ngSubmit)="onSubmit(technologyForm.value)">
-  <h2 class="leading-7 text-gray-dark">Create Technology</h2>
+  <h2 class="leading-7 text-gray-dark cursor-pointer"
+      (click)="panelOpen = !panelOpen">
+    <fa-icon [icon]="faPlus"></fa-icon><span class="ml-2">Create Technology</span>
+  </h2>
 
-  <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-    <!-- name -->
-    <div class="col-span-full">
-      <label for="name-control" class="block text-sm font-medium leading-6 text-gray-darkest">Name</label>
-      <div class="mt-2">
-        <input id="name-control" type="text" formControlName="name"
-               class="block w-full rounded-md border-0 py-1.5 text-gray-darkest shadow-sm ring-1 ring-inset
-                  ring-gray-light placeholder:text-gray focus:ring-2 focus:ring-inset focus:ring-indigo sm:text-sm sm:leading-6">
-        <div *ngIf="submitted && technologyForm.controls?.['name']?.['errors']" class="text-red sm:text-sm">
-          <div *ngIf="technologyForm.controls?.['name']?.['errors']?.['required']">Name is required</div>
+  <div *ngIf="panelOpen">
+
+    <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+      <!-- name -->
+      <div class="col-span-full">
+        <label for="name-control" class="block text-sm font-medium leading-6 text-gray-darkest">Name</label>
+        <div class="mt-2">
+          <input id="name-control" type="text" formControlName="name"
+                 class="block w-full rounded-md border-0 py-1.5 text-gray-darkest shadow-sm ring-1 ring-inset
+                    ring-gray-light placeholder:text-gray focus:ring-2 focus:ring-inset focus:ring-indigo sm:text-sm sm:leading-6">
+          <div *ngIf="submitted && technologyForm.controls?.['name']?.['errors']" class="text-red sm:text-sm">
+            <div *ngIf="technologyForm.controls?.['name']?.['errors']?.['required']">Name is required</div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- category -->
-    <div class="sm:col-span-3">
-      <label for="category-control" class="block text-sm font-medium leading-6 text-gray-darkest">Category</label>
-      <div class="mt-2">
-        <select id="category-control" name="category" formControlName="category"
-                class="block w-full rounded-md border-0 py-1.5 text-gray-darkest shadow-sm ring-1 ring-inset ring-gray-light focus:ring-2 focus:ring-inset focus:ring-indigo sm:max-w-xs sm:text-sm sm:leading-6">
-          <option *ngFor="let category of categories" [value]="category">
-            {{ categoryLabels[category] }}
-          </option>
-        </select>
-      </div>
-    </div>
-
-    <!-- ring -->
-    <div class="sm:col-span-3">
-      <label for="ring-control" class="block text-sm font-medium leading-6 text-gray-darkest">Ring</label>
-      <div class="mt-2">
-        <select id="ring-control" name="ring" formControlName="ring"
-                class="block w-full rounded-md border-0 py-1.5 text-gray-darkest shadow-sm ring-1 ring-inset ring-gray-light focus:ring-2 focus:ring-inset focus:ring-indigo sm:max-w-xs sm:text-sm sm:leading-6">
-          <option *ngFor="let ring of rings" [value]="ring">
-            {{ ringLabels[ring] }}
-          </option>
-        </select>
-      </div>
-    </div>
-
-    <!-- description -->
-    <div class="col-span-full">
-      <label for="description-control" class="block text-sm font-medium leading-6 text-gray-darkest">Description</label>
-      <div class="mt-2">
-        <textarea id="description-control" name="description" formControlName="description"
-                  rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-darkest shadow-sm ring-1 ring-inset ring-gray-light placeholder:text-gray focus:ring-2 focus:ring-inset focus:ring-indigo sm:text-sm sm:leading-6"></textarea>
-        <div *ngIf="submitted && technologyForm.controls?.['description']?.['errors']" class="text-red sm:text-sm">
-          <div *ngIf="technologyForm.controls?.['description']?.['errors']?.['required']">Description is required</div>
+      <!-- category -->
+      <div class="sm:col-span-3">
+        <label for="category-control" class="block text-sm font-medium leading-6 text-gray-darkest">Category</label>
+        <div class="mt-2">
+          <select id="category-control" name="category" formControlName="category"
+                  class="block w-full rounded-md border-0 py-1.5 text-gray-darkest shadow-sm ring-1 ring-inset ring-gray-light focus:ring-2 focus:ring-inset focus:ring-indigo sm:max-w-xs sm:text-sm sm:leading-6">
+            <option *ngFor="let category of categories" [value]="category">
+              {{ categoryLabels[category] }}
+            </option>
+          </select>
         </div>
       </div>
+
+      <!-- ring -->
+      <div class="sm:col-span-3">
+        <label for="ring-control" class="block text-sm font-medium leading-6 text-gray-darkest">Ring</label>
+        <div class="mt-2">
+          <select id="ring-control" name="ring" formControlName="ring"
+                  class="block w-full rounded-md border-0 py-1.5 text-gray-darkest shadow-sm ring-1 ring-inset ring-gray-light focus:ring-2 focus:ring-inset focus:ring-indigo sm:max-w-xs sm:text-sm sm:leading-6">
+            <option *ngFor="let ring of rings" [value]="ring">
+              {{ ringLabels[ring] }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <!-- description -->
+      <div class="col-span-full">
+        <label for="description-control" class="block text-sm font-medium leading-6 text-gray-darkest">Description</label>
+        <div class="mt-2">
+          <textarea id="description-control" name="description" formControlName="description"
+                    rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-darkest shadow-sm ring-1 ring-inset ring-gray-light placeholder:text-gray focus:ring-2 focus:ring-inset focus:ring-indigo sm:text-sm sm:leading-6"></textarea>
+          <div *ngIf="submitted && technologyForm.controls?.['description']?.['errors']" class="text-red sm:text-sm">
+            <div *ngIf="technologyForm.controls?.['description']?.['errors']?.['required']">Description is required</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- classification -->
+      <div class="col-span-full">
+        <label for="classification-control" class="block text-sm font-medium leading-6 text-gray-darkest">Classification [optional]</label>
+        <div class="mt-2">
+          <textarea id="classification-control" name="classification" formControlName="classification"
+                    rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-darkest shadow-sm ring-1 ring-inset ring-gray-light placeholder:text-gray focus:ring-2 focus:ring-inset focus:ring-indigo sm:text-sm sm:leading-6"></textarea>
+        </div>
+      </div>
+
+      <!-- publish -->
+      <div class="sm:col-span-6 flex gap-x-3">
+        <div class="flex h-6 items-center">
+          <input id="publish-control" name="publish" type="checkbox" formControlName="publish"
+                 class="h-4 w-4 rounded border-gray-light text-indigo focus:ring-indigo">
+        </div>
+        <div class="text-sm leading-6">
+          <label for="publish-control" class="font-medium text-gray-darkest">Publish</label>
+          <p class="text-gray">Publish this new technology right away so that it can be seen in the viewer.</p>
+        </div>
+      </div>
+
     </div>
 
-    <!-- classification -->
-    <div class="col-span-full">
-      <label for="classification-control" class="block text-sm font-medium leading-6 text-gray-darkest">Classification [optional]</label>
-      <div class="mt-2">
-        <textarea id="classification-control" name="classification" formControlName="classification"
-                  rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-darkest shadow-sm ring-1 ring-inset ring-gray-light placeholder:text-gray focus:ring-2 focus:ring-inset focus:ring-indigo sm:text-sm sm:leading-6"></textarea>
-      </div>
+    <div class="mt-6 flex items-center justify-center gap-x-6">
+      <button type="submit" class="rounded-md bg-indigo-dark px-3 py-2 text-sm font-semibold text-gray-lightest shadow-sm hover:bg-indigo focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-dark">
+        Submit
+      </button>
     </div>
 
-    <!-- publish -->
-    <div class="sm:col-span-6 flex gap-x-3">
-      <div class="flex h-6 items-center">
-        <input id="publish-control" name="publish" type="checkbox" formControlName="publish"
-               class="h-4 w-4 rounded border-gray-light text-indigo focus:ring-indigo">
-      </div>
-      <div class="text-sm leading-6">
-        <label for="publish-control" class="font-medium text-gray-darkest">Publish</label>
-        <p class="text-gray">Publish this new technology right away so that it can be seen in the viewer.</p>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="mt-6 flex items-center justify-center gap-x-6">
-    <button type="submit" class="rounded-md bg-indigo-dark px-3 py-2 text-sm font-semibold text-gray-lightest shadow-sm hover:bg-indigo focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-dark">
-      Submit
-    </button>
   </div>
 
 </form>

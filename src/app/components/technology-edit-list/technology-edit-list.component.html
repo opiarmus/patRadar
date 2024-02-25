@@ -1,4 +1,7 @@
-<h2 class="leading-7 text-gray-dark mb-3 cursor-pointer" (click)="panelOpen = !panelOpen">Edit Technologies</h2>
+<h2 class="leading-7 text-gray-dark mb-3 cursor-pointer"
+    (click)="panelOpen = !panelOpen">
+  <fa-icon [icon]="faPenToSquare"></fa-icon><span class="ml-2">Edit Technologies</span>
+</h2>
 <div *ngIf="panelOpen">
   <div *ngIf="technologies; else show_loading" class="grid grid-cols-1 gap-4">
     <div>

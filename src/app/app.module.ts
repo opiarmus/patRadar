@@ -16,6 +16,7 @@ import { SnackbarComponent } from './components/snackbar/snackbar.component';
 import { TextAbbrPipe } from './shared/pipes/text-abbr.pipe';
 import { TechnologyEditListComponent } from './components/technology-edit-list/technology-edit-list.component';
 import { TechnologyEditComponent } from './components/technology-edit/technology-edit.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { TechnologyEditComponent } from './components/technology-edit/technology
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
