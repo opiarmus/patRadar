@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TechnologyListComponent } from './technology-list.component';
-import {TechnologyService} from "../../services/technology/technology.service";
-import {of} from "rxjs";
+// import {TechnologyService} from "../../services/technology/technology.service";
+// import {of} from "rxjs";
 
 describe('TechnologyListComponent', () => {
   let component: TechnologyListComponent;

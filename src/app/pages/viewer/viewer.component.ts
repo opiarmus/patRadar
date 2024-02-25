@@ -18,7 +18,7 @@ export class ViewerComponent {
     this.route.params.subscribe(params => {
       const id = params['id'];
       if (id && !isNaN(id)) {
-        const technology = this.technologyService.getTechnology(id).subscribe(technology => {
+        this.technologyService.getTechnology(id).subscribe(technology => {
           if (technology && technology.published) {
             this.selectedTechnology = technology;
           } else {
