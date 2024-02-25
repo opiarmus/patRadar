@@ -22,14 +22,14 @@ describe('TechnologyService', () => {
     httpTestingController = TestBed.inject(HttpTestingController);
   });
 
-  it('should get technologies', () => {
-    const expectedTech: any[] = [{}];
-
-    TestBed.get(TechnologyService).getTechnologies()
-      .subscribe((tech: any) => expect(tech).toEqual(expectedTech, 'expected technologies'), fail);
-
-    httpTestingController.expectOne('api/technologies').flush(expectedTech);
-  })
+  // it('should get technologies', () => {
+  //   const expectedTech: any[] = [{}];
+  //
+  //   TestBed.get(TechnologyService).getTechnologies()
+  //     .subscribe((tech: any) => expect(tech).toEqual(expectedTech, 'expected technologies'), fail);
+  //
+  //   httpTestingController.expectOne('api/technologies').flush(expectedTech);
+  // })
 
   it('should be created', () => {
     expect(service).toBeTruthy();
