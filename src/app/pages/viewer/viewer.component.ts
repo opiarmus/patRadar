@@ -18,12 +18,13 @@ export class ViewerComponent {
     this.route.params.subscribe(params => {
       const id = params['id'];
       if (id && !isNaN(id)) {
-        const technology = this.technologyService.getTechnology(+id);
-        if (technology && technology.published) {
-          this.selectedTechnology = technology;
-        } else {
-          console.log(`The technology with the id ${id} does not exist or is not published.`);
-        }
+        const technology = this.technologyService.getTechnology(id).subscribe(technology => {
+          if (technology && technology.published) {
+            this.selectedTechnology = technology;
+          } else {
+            console.log(`The technology with the id ${id} does not exist or is not published.`);
+          }
+        });
       }
     })
   }

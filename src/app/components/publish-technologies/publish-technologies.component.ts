@@ -13,7 +13,12 @@ export class PublishTechnologiesComponent {
   constructor(private technologyService: TechnologyService) {  }
 
   ngOnInit(): void {
-    this.technologies = this.technologyService.getTechnologies();
+    this.getTechnologies();
+  }
+
+  getTechnologies(): void {
+    this.technologyService.getTechnologies()
+      .subscribe(technologies => this.technologies = technologies);
   }
 
 }

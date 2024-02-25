@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Output} from '@angular/core';
-import {Category, Ring, Technology} from "../../shared/types/technology.types";
+import {Category, CategoryLabels, Ring, RingLabels, Technology} from "../../shared/types/technology.types";
 import {TechnologyService} from "../../services/technology/technology.service";
 
 @Component({
@@ -17,9 +17,14 @@ export class TechnologyListComponent {
   constructor(private technologyService: TechnologyService) {  }
 
   ngOnInit() {
-    this.technologies = this.technologyService.getTechnologies()
-      .filter(t => t.published)
-      .sort((a, b) => a.ring < b.ring ? -1 : 1);
+    this.getTechnologies();
+  }
+
+  getTechnologies(): void {
+    this.technologyService.getTechnologies()
+      .subscribe(technologies => {
+        this.technologies = technologies.filter(tech => tech.published);
+      });
   }
 
   categoryKeys(): Array<string> {
@@ -33,7 +38,6 @@ export class TechnologyListComponent {
 
   getTechnologiesOfCategory(category: string) {
     const cat = Category[category as keyof typeof Category];
-    console.log(cat);
     return this.technologies
       .filter(tech => tech.category === cat)
       .sort((a, b) => a.ring < b.ring ? -1 : 1);

@@ -1,25 +1,58 @@
 import { Injectable } from '@angular/core';
-import {DUMMY_TECHS, Technology} from "../../shared/types/technology.types";
+import { Technology } from "../../shared/types/technology.types";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {catchError, Observable, of, tap} from "rxjs";
+import {SnackbarService} from "../snackbar/snackbar.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class TechnologyService {
-  private technologies: Technology[] = DUMMY_TECHS;
 
-  constructor() { }
+  private technologyUrl = 'http://localhost:9999/technologies';
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
-  getTechnologies(): Technology[] {
-    return this.technologies;
+  constructor(
+    private http: HttpClient,
+    private snackbarService: SnackbarService
+  ) { }
+
+  getTechnologies(): Observable<Technology[]> {
+    return this.http.get<Technology[]>(this.technologyUrl)
+      .pipe(
+        tap(_ => console.log('fetched technologies')),
+        catchError(this.handleError<Technology[]>('getTechnologies', []))
+      );
   }
 
-  getTechnology(id: number): Technology | null {
-    const technology = this.technologies.find(tech => tech.id === id);
-    return technology ?? null;
+  getTechnology(id: string): Observable<Technology> {
+    const url = `${this.technologyUrl}/${id}`;
+    return this.http.get<Technology>(url)
+      .pipe(
+        tap(_ => console.log(`fetched technology id=${id}`)),
+        catchError(this.handleError<Technology>(`getTechnology id=${id}`))
+      );
   }
 
-  addTechnology(technology: Technology): void {
-    this.technologies.push(technology);
+  addTechnology(technology: Technology): Observable<any> {
+    return this.http.post(this.technologyUrl, technology, this.httpOptions)
+      .pipe(
+        tap(_ => console.log(`added technology`)),
+        catchError(this.handleError<any>(`addTechnology`))
+      );
   }
 
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error);
+      this.showMessage(`${operation} failed: ${error.message}`);
+      return of(result as T);
+    }
+  }
+
+  private showMessage(message: string) {
+    this.snackbarService.show(`Technology Service: ${message}`);
+  }
 }

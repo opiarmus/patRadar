@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import {Category, CategoryLabels, Ring, RingLabels, Technology} from "../../shared/types/technology.types";
-import {DUMMY_USERS} from "../../shared/types/user.types";
 import {SnackbarService} from "../../services/snackbar/snackbar.service";
 import {TechnologyService} from "../../services/technology/technology.service";
 
@@ -59,25 +58,32 @@ export class TechnologyFormComponent {
       this.snackbarService.show('The form is invalid.');
       return;
     }
-    this.technologyService.addTechnology(this.getTechnologyFromFormValues(data));
-    this.technologyForm.reset(this.preFilledForm);
-    this.submitted = false;
-    this.snackbarService.show('New technology created!');
+    let newTech = this.getTechnologyFromFormValues(data);
+    this.technologyService.addTechnology(newTech)
+      .subscribe({
+        error: (error) => {
+          console.log('something went horribly wrong when adding: ', error);
+        },
+        complete: () => {
+          this.technologyForm.reset(this.preFilledForm);
+          this.submitted = false;
+          this.snackbarService.show('New technology created!');
+        }
+      });
   }
 
   private getTechnologyFromFormValues(values: FormValues): Technology {
+    // @ts-ignore
     return {
-      published: values.publish,
+      published: false,
       createdAt: new Date(),
-      creator: DUMMY_USERS[0],
       classification: values.classification,
       ring: parseInt(values.ring) as Ring,
       description: values.description,
       category: parseInt(values.category) as Category,
       name: values.name,
-      id: this.technologyService.getTechnologies().reduce((max, tech) => {
-        return tech.id > max ? tech.id : max;
-      }, 0) + 1
+      creatorName: 'patstein', // TODO: replace with actual current user
+      creatorId: '65db683b399e2053d7ef20f6', // TODO: replace with actual current user
     };
   }
 
