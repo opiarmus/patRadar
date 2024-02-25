@@ -13,8 +13,9 @@ import { TechnologyListComponent } from './components/technology-list/technology
 import { TechnologyDetailDialogComponent } from './components/technology-detail-dialog/technology-detail-dialog.component';
 import { LocalDatePipe } from './shared/pipes/local-date.pipe';
 import { SnackbarComponent } from './components/snackbar/snackbar.component';
-import { PublishTechnologiesComponent } from './components/publish-technologies/publish-technologies.component';
 import { TextAbbrPipe } from './shared/pipes/text-abbr.pipe';
+import { TechnologyEditListComponent } from './components/technology-edit-list/technology-edit-list.component';
+import { TechnologyEditComponent } from './components/technology-edit/technology-edit.component';
 
 @NgModule({
   declarations: [
@@ -27,8 +28,9 @@ import { TextAbbrPipe } from './shared/pipes/text-abbr.pipe';
     TechnologyDetailDialogComponent,
     LocalDatePipe,
     SnackbarComponent,
-    PublishTechnologiesComponent,
-    TextAbbrPipe
+    TextAbbrPipe,
+    TechnologyEditListComponent,
+    TechnologyEditComponent
   ],
   imports: [
     BrowserModule,

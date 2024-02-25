@@ -1,0 +1,80 @@
+<div class="bg-gray-lightest rounded-lg p-4">
+  <!-- Technology Name -->
+  <h2 class="mb-2">
+    {{ technology.name }}
+    <span class="text-xs text-gray ml-2">{{ technology._id }}</span>
+  </h2>
+
+  <!-- Flex container for select controls -->
+  <div class="flex flex-wrap mb-4">
+
+    <!-- Category Select Dropdown -->
+    <div class="w-full sm:w-1/2 pr-2">
+      <label class="block mb-2">
+        Category:
+        <select [(ngModel)]="technology.category"
+                class="block w-full rounded-md border-gray-light shadow-sm focus:border-indigo-light focus:ring
+                focus:ring-indigo-lightest focus:ring-opacity-50">
+          <option *ngFor="let category of categories" [value]="category">
+            {{ categoryLabels[category] }}
+          </option>
+        </select>
+      </label>
+    </div>
+
+    <!-- Ring Select Dropdown -->
+    <div class="w-full sm:w-1/2 pr-2">
+      <label class="block mb-2">
+        Ring:
+        <select [(ngModel)]="technology.ring" class="block w-full rounded-md border-gray-light shadow-sm
+        focus:border-indigo-light focus:ring focus:ring-indigo-lightest focus:ring-opacity-50">
+          <option *ngFor="let ring of rings" [value]="ring">
+            {{ ringLabels[ring] }}
+          </option>
+        </select>
+      </label>
+    </div>
+
+  </div>
+
+  <!-- Flex container for text areas -->
+  <div class="flex flex-wrap mb-2">
+
+    <!-- Description Textarea -->
+    <div class="w-full sm:w-1/2 pr-2">
+      <label class="block mb-2">
+        Description:
+        <textarea [(ngModel)]="technology.description"
+                  class="block w-full rounded-md border-gray-light shadow-sm focus:border-indigo-light
+                  focus:ring focus:ring-indigo-lightest focus:ring-opacity-50" rows="4"></textarea>
+      </label>
+    </div>
+
+    <!-- Classification Textarea -->
+    <div class="w-full sm:w-1/2 pr-2">
+      <label class="block mb-2">
+        Classification:
+        <textarea [(ngModel)]="technology.classification"
+                  class="block w-full rounded-md border-gray-light shadow-sm focus:border-indigo-light focus:ring
+                  focus:ring-indigo-lightest focus:ring-opacity-50" rows="4"></textarea>
+      </label>
+    </div>
+
+  </div>
+
+  <!-- Publish Status -->
+  <p class="mb-2">
+    {{ technology.published ? 'Published at ' + (technology.publishedAt | localDate)  : 'Not Published' }}
+  </p>
+
+  <!-- Publish Button -->
+  <button class="bg-indigo text-gray-lightest px-4 py-2 rounded-md shadow-md mr-2"
+          (click)="publishTechnology()"
+  >Publish</button>
+
+  <!-- Save Button -->
+  <button class="bg-indigo-dark text-gray-lightest px-4 py-2 rounded-md shadow-md"
+          (click)="saveTechnology()"
+  >Save</button>
+
+</div>

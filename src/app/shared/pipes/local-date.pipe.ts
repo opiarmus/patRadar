@@ -6,11 +6,14 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class LocalDatePipe implements PipeTransform {
 
   transform(value: any, dateFormat: string = 'de-CH'): string {
-    if (value == typeof Date) {
-      return value.toLocaleDateString(dateFormat);
-    } else {
+    try {
+      if (value == typeof Date) {
+        return value.toLocaleDateString(dateFormat);
+      }
       const date = new Date(value);
       return date.toLocaleDateString(dateFormat);
+    } catch {
+      return 'invalid date';
     }
   }
 

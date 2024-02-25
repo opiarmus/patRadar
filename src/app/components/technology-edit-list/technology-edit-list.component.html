@@ -1,0 +1,20 @@
+<h2 class="leading-7 text-gray-dark mb-3 cursor-pointer" (click)="panelOpen = !panelOpen">Edit Technologies</h2>
+<div *ngIf="panelOpen">
+  <div *ngIf="technologies; else show_loading" class="grid grid-cols-1 gap-4">
+    <div>
+      <input type="text" [(ngModel)]="searchTerm" placeholder="Search for technologies..."
+             class="block w-full rounded-md border-0 py-1.5 text-gray-darkest shadow-sm ring-1 ring-inset
+                    ring-gray-light placeholder:text-gray focus:ring-2 focus:ring-inset focus:ring-indigo sm:text-sm sm:leading-6">
+    </div>
+    <div *ngIf="filteredTechnologies.length === 0">
+      <p>No technologies found.</p>
+    </div>
+    <app-technology-edit
+      *ngFor="let technology of filteredTechnologies"
+      [technology]="technology"
+    ></app-technology-edit>
+  </div>
+  <ng-template #show_loading>
+    <div class="text-gray-light">loading...</div>
+  </ng-template>
+</div>

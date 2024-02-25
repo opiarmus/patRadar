@@ -57,9 +57,16 @@ Page dafür habe, musste ich hier eine Lösung finden.
 Stunden: 12
 
 Tätigkeiten:
-- Node.js Webserver erstellt für das Backend
+- Node.js Webserver mit Express erstellt für das Backend.
+Dafür ein Repo aufgesetzt. Dann die Struktur aufgebaut und dabei cors, body-parser, etc. eingerichtet.
+- MongoDb Account erstellt, Projekt erstellt, DB erstellt. Konfiguriert, sodass zugegriffen werden kann. 
+Dummy Objekte übertragen in die DB.
+- REST API auf Webserver eingerichtet, sodass Technologien abgefragt, erstellt und editiert werden können.
+- In Frontend die Dummy-Objekte entfernt und alles umgestellt, sodass jetzt Daten live vom Webserver empfangen werden.
+- Visuelle Verbesserungen wie z.B. Kürzen von zu langen Texten in der Übersicht mittels Pipes gelöst.
+- 
 
 
 
 ## Total
-Stunden: 30
+Stunden: 40
