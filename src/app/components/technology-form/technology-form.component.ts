@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import {Category, CategoryLabels, Ring, RingLabels, Technology} from "../../shared/types/technology.types";
 import {SnackbarService} from "../../services/snackbar/snackbar.service";
@@ -20,6 +20,8 @@ interface FormValues {
 })
 export class TechnologyFormComponent {
 
+  @Output() addedTechnology = new EventEmitter<Technology>();
+
   technologyForm!: FormGroup;
   // @ts-ignore
   categories: Category[] = Object.values(Category).filter(value => typeof value === 'number');
@@ -33,11 +35,10 @@ export class TechnologyFormComponent {
     ring: Ring.NotAssigned,
     description: '',
     classification: '',
-    publish: false,
   }
 
   submitted = false;
-  panelOpen: boolean = false;
+  panelOpen: boolean = true;
 
   constructor(private formBuilder: FormBuilder,
               private snackbarService: SnackbarService,
@@ -63,12 +64,16 @@ export class TechnologyFormComponent {
     let newTech = this.getTechnologyFromFormValues(data);
     this.technologyService.addTechnology(newTech)
       .subscribe({
+        next: (response) => {
+          newTech._id = response._id;
+        },
         error: (error) => {
           console.log('something went horribly wrong when adding: ', error);
         },
         complete: () => {
           this.technologyForm.reset(this.preFilledForm);
           this.submitted = false;
+          this.addedTechnology.emit(newTech);
           this.snackbarService.show('New technology created!');
         }
       });

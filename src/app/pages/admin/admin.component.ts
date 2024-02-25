@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
+import {Technology} from "../../shared/types/technology.types";
 
 @Component({
   selector: 'app-admin',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AdminComponent {
 
+  @ViewChild('editList') editListComponent: any;
+
+  onAddNewTechnology(newTech: Technology) {
+    this.editListComponent.addNewTechnology(newTech);
+  }
 }

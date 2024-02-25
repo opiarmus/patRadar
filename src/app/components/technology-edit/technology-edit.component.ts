@@ -1,4 +1,4 @@
-import {Component, Input, NgIterable} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Category, CategoryLabels, Ring, RingLabels, Technology} from "../../shared/types/technology.types";
 
 @Component({
@@ -22,5 +22,16 @@ export class TechnologyEditComponent {
 
   saveTechnology() {
 
+  }
+
+  isOkToSave(technology: Technology) {
+    return technology.name.trim() &&
+      technology.description.trim()
+  }
+
+  isPublishable(technology: Technology) {
+    return this.isOkToSave(technology) &&
+      technology.ring > Ring.NotAssigned &&
+      technology.classification.trim();
   }
 }

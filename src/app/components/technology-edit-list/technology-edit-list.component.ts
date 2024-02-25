@@ -12,6 +12,7 @@ export class TechnologyEditListComponent {
 
   technologies: Technology[] | null = null;
   searchTerm: string = '';
+  showOnlyUnpublished: boolean = false;
   panelOpen: boolean = false;
 
   constructor(private technologyService: TechnologyService) {  }
@@ -22,16 +23,26 @@ export class TechnologyEditListComponent {
 
   private getTechnologies() {
     this.technologyService.getTechnologies()
-      .subscribe(technologies => this.technologies = technologies);
+      .subscribe(technologies =>
+        this.technologies = technologies
+          .sort((a, b) => a.createdAt > b.createdAt ? -1 : 1)
+      );
+  }
+
+  addNewTechnology(newTech: Technology) {
+    if (this.technologies) {
+      this.technologies.unshift(newTech);
+    }
   }
 
   get filteredTechnologies(): Technology[] {
-    if (!this.technologies || !this.searchTerm.trim()) {
-      return this.technologies || [];
+    if (!this.technologies) {
+      return [];
     }
     const searchTermLower = this.searchTerm.trim().toLowerCase();
     return this.technologies.filter(tech =>
-      tech.name.toLowerCase().includes(searchTermLower)
+      tech.name.toLowerCase().includes(searchTermLower) &&
+      this.showOnlyUnpublished ? !tech.published : true
     );
   }
 
