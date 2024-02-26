@@ -9,7 +9,7 @@ import {SnackbarService} from "../snackbar/snackbar.service";
 })
 export class TechnologyService {
 
-  private technologyUrl = 'http://localhost:9999/technologies';
+  private technologyUrl = 'http://localhost:9998/technologies';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
