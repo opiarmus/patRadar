@@ -69,17 +69,22 @@
 
   <!-- Publish Button -->
   <button *ngIf="!technology.published"
-          [disabled]="!isPublishable(technology)"
-          [class.bg-indigo]="isPublishable(technology)"
-          [class.bg-gray]="!isPublishable(technology)"
-          class="text-gray-lightest px-4 py-2 rounded-md shadow-md mr-2"
           (click)="publishTechnology()"
+          [disabled]="!canBePublished"
+          [class.bg-indigo]="canBePublished"
+          [class.bg-gray]="!canBePublished"
+          class="text-gray-lightest px-4 py-2 rounded-md shadow-md mr-2"
+          [title]="canBePublished ? 'Publish the technology' : 'All information must be provided to publish'"
   >Publish</button>
 
   <!-- Save Button -->
-  <button class="bg-indigo-dark text-gray-lightest px-4 py-2 rounded-md shadow-md"
+  <button
           (click)="saveTechnology()"
-          [disabled]="!isOkToSave(technology)"
+          [disabled]="!canBeSaved"
+          class=" text-gray-lightest px-4 py-2 rounded-md shadow-md"
+          [class.bg-indigo-dark]="canBeSaved"
+          [class.bg-gray]="!canBeSaved"
+          [title]="canBeSaved ? 'Save the technology' : 'Description must be provided to save'"
   >Save</button>
 
 </div>

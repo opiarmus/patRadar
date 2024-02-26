@@ -24,14 +24,15 @@ export class TechnologyEditComponent {
 
   }
 
-  isOkToSave(technology: Technology) {
-    return technology.name.trim() &&
-      technology.description.trim()
+  get canBeSaved(): boolean {
+    return this.technology.name.trim().length > 0 &&
+      this.technology.description.trim().length > 0;
   }
 
-  isPublishable(technology: Technology) {
-    return this.isOkToSave(technology) &&
-      technology.ring > Ring.NotAssigned &&
-      technology.classification.trim();
+  get canBePublished(): boolean {
+    return this.canBeSaved &&
+      this.technology.ring > Ring.NotAssigned &&
+      this.technology.classification.trim().length > 0;
   }
+
 }

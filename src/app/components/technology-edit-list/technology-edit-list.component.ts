@@ -13,7 +13,7 @@ export class TechnologyEditListComponent {
   technologies: Technology[] | null = null;
   searchTerm: string = '';
   showOnlyUnpublished: boolean = false;
-  panelOpen: boolean = false;
+  panelOpen: boolean = true;
 
   constructor(private technologyService: TechnologyService) {  }
 
