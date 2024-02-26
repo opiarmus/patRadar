@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Technology } from "../../shared/types/technology.types";
+import {Ring, Technology} from "../../shared/types/technology.types";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {catchError, Observable, of, tap} from "rxjs";
 import {SnackbarService} from "../snackbar/snackbar.service";
@@ -44,15 +44,22 @@ export class TechnologyService {
       );
   }
 
+  updateTechnology(technology: Technology): Observable<any> {
+    return this.http.put(this.technologyUrl, technology, this.httpOptions)
+      .pipe(
+        tap(_ => console.log('updated technology in service')),
+        catchError(this.handleError<any>('updateTechnology'))
+      );
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);
-      this.showMessage(`${operation} failed: ${error.message}`);
       return of(result as T);
     }
   }
 
-  private showMessage(message: string) {
-    this.snackbarService.show(`Technology Service: ${message}`);
-  }
+  // private showMessage(message: string) {
+  //   this.snackbarService.show(`Technology Service: ${message}`);
+  // }
 }

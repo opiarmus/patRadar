@@ -61,6 +61,7 @@ Tätigkeiten:
 Dafür ein Repo aufgesetzt. Dann die Struktur aufgebaut und dabei cors, body-parser, etc. eingerichtet.
 - MongoDb Account erstellt, Projekt erstellt, DB erstellt. Konfiguriert, sodass zugegriffen werden kann. 
 Dummy Objekte übertragen in die DB.
+- "dotenv" installiert, um Credentials (u.a. für MongoDB) nicht im Repository zu enthalten.
 - REST API auf Webserver eingerichtet, sodass Technologien abgefragt, erstellt und editiert werden können.
 - In Frontend die Dummy-Objekte entfernt und alles umgestellt, sodass jetzt Daten live vom Webserver empfangen werden.
 - Visuelle Verbesserungen wie z.B. Kürzen von zu langen Texten in der Übersicht mittels Pipes gelöst.

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { APP_TITLE } from "../../shared/constants";
+import {faSearch} from "@fortawesome/free-solid-svg-icons/faSearch";
+import {faSatelliteDish} from "@fortawesome/free-solid-svg-icons/faSatelliteDish";
 
 @Component({
   selector: 'app-navigation',
@@ -9,4 +11,5 @@ import { APP_TITLE } from "../../shared/constants";
 export class NavigationComponent {
   title = APP_TITLE;
 
+  protected readonly faSatelliteDish = faSatelliteDish;
 }

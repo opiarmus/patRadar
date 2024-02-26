@@ -17,7 +17,7 @@ export class ViewerComponent {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       const id = params['id'];
-      if (id && !isNaN(id)) {
+      if (id) {
         this.technologyService.getTechnology(id).subscribe(technology => {
           if (technology && technology.published) {
             this.selectedTechnology = technology;

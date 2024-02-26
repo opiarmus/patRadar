@@ -68,7 +68,8 @@ export class TechnologyFormComponent {
           newTech._id = response._id;
         },
         error: (error) => {
-          console.log('something went horribly wrong when adding: ', error);
+          console.log('something went wrong while adding technology: ', error);
+          this.snackbarService.show('Error while creating technology');
         },
         complete: () => {
           this.technologyForm.reset(this.preFilledForm);
