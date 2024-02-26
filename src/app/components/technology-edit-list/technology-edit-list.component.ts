@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {Technology} from "../../shared/types/technology.types";
 import {TechnologyService} from "../../services/technology/technology.service";
 import {faPenToSquare} from "@fortawesome/free-regular-svg-icons";
@@ -13,7 +13,7 @@ export class TechnologyEditListComponent {
   technologies: Technology[] | null = null;
   searchTerm: string = '';
   showOnlyUnpublished: boolean = false;
-  panelOpen: boolean = true;
+  panelOpen: boolean = false;
 
   constructor(private technologyService: TechnologyService) {  }
 
@@ -42,7 +42,7 @@ export class TechnologyEditListComponent {
     const searchTermLower = this.searchTerm.trim().toLowerCase();
     return this.technologies.filter(tech =>
       tech.name.toLowerCase().includes(searchTermLower) &&
-      this.showOnlyUnpublished ? !tech.published : true
+      (this.showOnlyUnpublished ? !tech.published : true)
     );
   }
 
