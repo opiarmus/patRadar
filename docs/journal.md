@@ -64,7 +64,26 @@ Dummy Objekte übertragen in die DB.
 - REST API auf Webserver eingerichtet, sodass Technologien abgefragt, erstellt und editiert werden können.
 - In Frontend die Dummy-Objekte entfernt und alles umgestellt, sodass jetzt Daten live vom Webserver empfangen werden.
 - Visuelle Verbesserungen wie z.B. Kürzen von zu langen Texten in der Übersicht mittels Pipes gelöst.
-- 
+- Code aufgeräumt, um diverse Warnungen zu beseitigen
+- Komponente für das Editieren von Technologien im Adminbereich erstellt. 
+Dabei wird eine Liste alles Technologien angezeigt. Diese kann per Suchbegriff gefiltert werden. 
+Ebenfalls können nur die unpublizierten Technologien angezeigt werden (per Checkbox). 
+Die Liste ist aufgebaut einer weiteren separaten Komponente, welche alle nötigen Kontrollelemente für das 
+Bearbeiten bietet.
+- Den Admin Bereich übersichtlicher gestaltet, indem die Bereiche "Create Technology" und 
+"Edit Technology" jeweils ausklappbar gemacht wurden, um die Seite nicht zu überladen
+- Fontawesome installiert, um Icons anzuzeigen (da Angular Material nicht verwendet wird)
+- Buttons für das Publizieren und Speichern der editierten Technologien disabled, wenn die notwendigen Informationen 
+nicht angegeben wurden.
+- Wird eine neue Technologie erstellt, dann wird sie nun direkt in die Liste für das Editieren der Technologien überführt.
+Dadurch ist kein weiterer API-Call notwendig, um die Technologien in der anderen Komponente zu aktualisieren. 
+Dies wurde u.a. mit der "@ViewChild" Funktionalität umgesetzt.
+
+## 26.02.2024
+Stunden: 8
+
+Tätigkeiten:
+- Disable der "Publish" und "Save" Buttons repariert
 
 
 
