@@ -14,8 +14,27 @@ Tätigkeiten:
 - Projektbeschreibung aufgesetzt und geschrieben
 - Diese Markdowns erstellt, sodass die Dokumentationen ebenfalls unter Versionskontrolle stehen
 
+## 17.02.2024
+Stunden: 4.5
+
+Tätigkeiten:
+
+- Dokument für Arbeitsjournal neu aufgesetzt und direkt in Reporitory als Markdown-Datei implementiert
+- Dokument für Architekturdokumentation aufgesetzt als Markdown-Datei
+- Recherche über arc42 und moderne Architekturdokumentation
+- Komponentendiagramm erstellt
+
+## 18.02.2024
+Stunden: 3.5
+
+Tätigkeiten:
+
+- Dokument für Reflexion und Fazit erstellt
+- Reflexion teilweise geschrieben.
+- Dokument für Architekturdokumentation neu erstellt. Diesmal doch als gewöhnliche Word-Datei.
+
 ## 23.02.2024
-Stunden: 12
+Stunden: 13
 
 Tätigkeiten:
 - Angular projekt erstellt und initialisiert.
@@ -36,7 +55,7 @@ Das Backend und die DB kommen erst noch.
 - IntelliJ Spell-Check konfiguriert, sodass Deutsch nicht als Tippfehler angezeigt wird
 
 ## 24.02.2024
-Stunden: 12
+Stunden: 11.5
 
 Tätigkeiten:
 - Page für den Viewer hinzugefügt
@@ -54,7 +73,7 @@ Page dafür habe, musste ich hier eine Lösung finden.
 - Technologien in Viewer nach Kategorien strukturiert und nach Maturität sortiert
 
 ## 25.02.2024
-Stunden: 12
+Stunden: 10
 
 Tätigkeiten:
 - Node.js Webserver mit Express erstellt für das Backend.
@@ -81,12 +100,43 @@ Dadurch ist kein weiterer API-Call notwendig, um die Technologien in der anderen
 Dies wurde u.a. mit der "@ViewChild" Funktionalität umgesetzt.
 
 ## 26.02.2024
-Stunden: 8
+Stunden: 9
 
 Tätigkeiten:
 - Disable der "Publish" und "Save" Buttons repariert
+- Speichern und publizieren in der Admin-Area implementiert. Im entsprechenden Service wurden die Methoden ergänzt.
+- Bugfix: Das Filtern der Liste im Viewer-Bereich hat nicht mehr funktioniert. Fehler wurde behoben.
+- Testing Bibliotheken (jest, ts-jest) im Frontend hinzugefügt, um Komponenten zu testen. 
+Leider konnten die Testfälle nicht erfolgreich durchgeführt werden.
+- Environments im Frontend hinzugefügt mit Ausblick auf das Deployment. Leider hat das Deployment nicht funktioniert 
+über Netlify. Zumindest die Environments haben nicht funktioniert. Ebenfalls ist es schwierig zu testen, da das Backend 
+Deployment auch nicht funktioniert hat.
+- Updaten von Technologien in der backend API ermöglicht und Bug repariert. ObjectIds wurden nicht korrekt konvertiert 
+und haben dazu geführt, dass Technologien nicht aktualisiert werden konnten. Ebenfalls mussten die Daten konvertiert werden, 
+bevor sie in die DB eingefügt werden. Durch das parsen des Request-Body ist der Typ der Daten verloren gegangen und diese wurden 
+sodann als Strings in die DB gespeichert.
+- Änderungen an Technologien produzieren nun ebenfalls einen Eintrag in der "technologyChanges" Collection in der MongoDb. 
+So können Änderungen an den Technologien verfolgt werden.
+- Testing Bibliotheken in Backend installiert (jest, superagent, supertest). Leider nicht erfolgreich. In allen Anläufen, 
+konnten die Tests entweder gar nicht gestartet werden.
+- Webserver komplett umgeschrieben mit Mongoose, nur um zu sehen, ob dann die Tests funktionieren. Dem war jedoch nicht so. 
+Jetzt habe ich praktisch zwei Webserver, die das gleiche machen.
+- Versucht, einen Node.js Webserver zu hosten auf Google Cloud Platform, Netlify und dann auf Vercel. In allen Fällen erfolglos.
+Was für ein deprimierender Tag.
 
+## 27.02.2024
+Stunden: 8
 
+Tätigkeiten:
+- Dokumentation geschrieben
+- Fazit und Reflexion geschrieben.
 
-## Total
-Stunden: 40
+## 28.02.2024
+Stunden: 2
+
+Tätigkeiten:
+- Vorbereitung für Abgabe
+- Konvertieren und Einreichen der Dokumentation
+
+## Total Zeitaufwand
+Stunden: 67.5
