@@ -3,13 +3,14 @@ import {Ring, Technology} from "../../shared/types/technology.types";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {catchError, Observable, of, tap} from "rxjs";
 import {SnackbarService} from "../snackbar/snackbar.service";
+import { environment } from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class TechnologyService {
 
-  private technologyUrl = 'http://localhost:9998/technologies';
+  private technologyUrl = environment.apiUrl;
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
