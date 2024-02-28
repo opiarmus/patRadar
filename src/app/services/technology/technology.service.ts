@@ -60,7 +60,4 @@ export class TechnologyService {
     }
   }
 
-  // private showMessage(message: string) {
-  //   this.snackbarService.show(`Technology Service: ${message}`);
-  // }
 }

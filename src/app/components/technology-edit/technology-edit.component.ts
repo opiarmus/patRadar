@@ -32,26 +32,31 @@ export class TechnologyEditComponent {
       published: true,
       publishedAt: new Date()
     }
-    this.updateTechnology(technologyCopy);
+    this.updateTechnology(technologyCopy, true);
     this.technology.published = true;
     this.technology.publishedAt = new Date();
   }
 
   saveTechnology() {
     this.isBusy = true;
-    this.updateTechnology(this.technology);
+    this.updateTechnology(this.technology, false);
   }
 
-  private updateTechnology(updateTech: Technology) {
+  private updateTechnology(updateTech: Technology, isPublish: boolean) {
     this.technologyService.updateTechnology(updateTech)
       .subscribe({
         error: (error) => {
           console.log('something went wrong while updating technology: ', error);
           this.snackbarService.show('Error while updating technology');
           this.isBusy = false;
+          return false;
         },
         complete: () => {
-          this.snackbarService.show('Technology updated!');
+          if (isPublish) {
+            this.snackbarService.show('Technology published!');
+          } else {
+            this.snackbarService.show('Technology updated!');
+          }
           this.isBusy = false;
         }
       });

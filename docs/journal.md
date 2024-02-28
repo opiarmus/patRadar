@@ -2,39 +2,40 @@
 Hier werden die Arbeiten am Projekt "PatRadar" festgehalten.
 
 ## 06.02.2024
-Stunden: 6
+Stunden: 5
 
 Tätigkeiten:
 
-- Aufgabenstellung des "TechRadar" Projekts inklusive Anforderungen  gelesen
+- Aufgabenstellung des "TechRadar" Projekts inklusive Anforderungen gelesen
 - Ansatz für die Umsetzung des Problems überlegt und mögliche Technologien recherchiert
 - Dokumentationen einzelner Technologien konsultiert und Machbarkeit im Projekt überprüft (Node.js, Vuetify, Pinia, MongoDB, Jest, Vitest)
 - Repository für das Frontend und die Dokumentationen erstellt und Vue.js App initialisiert
 - Arbeitsjournal aufgesetzt
 - Projektbeschreibung aufgesetzt und geschrieben
-- Diese Markdowns erstellt, sodass die Dokumentationen ebenfalls unter Versionskontrolle stehen
 
 ## 17.02.2024
-Stunden: 4.5
+Stunden: 3
 
 Tätigkeiten:
 
-- Dokument für Arbeitsjournal neu aufgesetzt und direkt in Reporitory als Markdown-Datei implementiert
+- Dokument für Arbeitsjournal neu aufgesetzt und direkt in Repository als Markdown-Datei implementiert, 
+sodass diese versioniert wird.
 - Dokument für Architekturdokumentation aufgesetzt als Markdown-Datei
 - Recherche über arc42 und moderne Architekturdokumentation
-- Komponentendiagramm erstellt
+- Struktur für Architekturdokumentation erarbeitet
 
 ## 18.02.2024
-Stunden: 3.5
+Stunden: 2.5
 
 Tätigkeiten:
 
 - Dokument für Reflexion und Fazit erstellt
 - Reflexion teilweise geschrieben.
-- Dokument für Architekturdokumentation neu erstellt. Diesmal doch als gewöhnliche Word-Datei.
+- Dokument für Architekturdokumentation neu erstellt. Diesmal als gewöhnliche Word-Datei, 
+da dies für die Abgabe einfacher ist.
 
 ## 23.02.2024
-Stunden: 13
+Stunden: 12
 
 Tätigkeiten:
 - Angular projekt erstellt und initialisiert.
@@ -111,32 +112,36 @@ Leider konnten die Testfälle nicht erfolgreich durchgeführt werden.
 - Environments im Frontend hinzugefügt mit Ausblick auf das Deployment. Leider hat das Deployment nicht funktioniert 
 über Netlify. Zumindest die Environments haben nicht funktioniert. Ebenfalls ist es schwierig zu testen, da das Backend 
 Deployment auch nicht funktioniert hat.
-- Updaten von Technologien in der backend API ermöglicht und Bug repariert. ObjectIds wurden nicht korrekt konvertiert 
+- Updaten von Technologien in der Backend-API ermöglicht und Bug repariert. ObjectIds wurden nicht korrekt konvertiert 
 und haben dazu geführt, dass Technologien nicht aktualisiert werden konnten. Ebenfalls mussten die Daten konvertiert werden, 
-bevor sie in die DB eingefügt werden. Durch das parsen des Request-Body ist der Typ der Daten verloren gegangen und diese wurden 
+bevor sie in die DB eingefügt werden. Durch das Parsen des Request-Body ist der Typ der Daten verloren gegangen und diese wurden 
 sodann als Strings in die DB gespeichert.
 - Änderungen an Technologien produzieren nun ebenfalls einen Eintrag in der "technologyChanges" Collection in der MongoDb. 
 So können Änderungen an den Technologien verfolgt werden.
-- Testing Bibliotheken in Backend installiert (jest, superagent, supertest). Leider nicht erfolgreich. In allen Anläufen, 
+- Testing Bibliotheken in Backend installiert (jest, superagent, supertest). Leider nicht erfolgreich. In allen Anläufen 
 konnten die Tests entweder gar nicht gestartet werden.
 - Webserver komplett umgeschrieben mit Mongoose, nur um zu sehen, ob dann die Tests funktionieren. Dem war jedoch nicht so. 
-Jetzt habe ich praktisch zwei Webserver, die das gleiche machen.
+Jetzt habe ich praktisch zwei Webserver, die das Gleiche machen.
 - Versucht, einen Node.js Webserver zu hosten auf Google Cloud Platform, Netlify und dann auf Vercel. In allen Fällen erfolglos.
-Was für ein deprimierender Tag.
 
 ## 27.02.2024
 Stunden: 8
 
 Tätigkeiten:
-- Dokumentation geschrieben
+- Architekturdokumentation geschrieben
+    - Blockdiagramm erstellt
+    - Sequenzdiagramm erstellt
+    - Verteilungsdiagramm erstellt
+    - Dokumentation überarbeitet und Inhalt erweitert
 - Fazit und Reflexion geschrieben.
 
 ## 28.02.2024
 Stunden: 2
 
 Tätigkeiten:
-- Vorbereitung für Abgabe
+- Vorbereitung für Abgabe. Abgabe Branches für die Repositories erstellt, sodass 
+der Stand am Ende der Deadline erhalten bleibt.
 - Konvertieren und Einreichen der Dokumentation
 
-## Total Zeitaufwand
-Stunden: 67.5
+## Zeitaufwand Total
+Stunden: 63
