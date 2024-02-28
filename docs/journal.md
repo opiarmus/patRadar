@@ -1,5 +1,5 @@
 # Arbeitsjournal
-Hier werden die Arbeiten am Projekt "PatRadar" festgehalten.
+Hier werden die Tätigkeiten im Projekt "PatRadar" festgehalten.
 
 ## 06.02.2024
 Stunden: 5
