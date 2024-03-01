@@ -145,3 +145,12 @@ der Stand am Ende der Deadline erhalten bleibt.
 
 ## Zeitaufwand Total
 Stunden: 63
+
+### Tätigkeiten nach Abgabetermin (Stunden nicht Teil des Totals)
+01.03.2024: Frontend Anpassungen, sodass Frontend auf Netlify deployt werden kann.
+Musste die environment-Dateien überarbeiten, weil die produktiven Dateien nicht angezogen wurden. 
+Es stellte sich heraus, dass im angular.json die Konfiguration fehlte, um die lokale mit der produktiven Datei auszutauschen.
+
+01.03.2024: Backend mit Heroku deployed. Konfiguration und Konto aufgesetzt, sodass der Server auf Heroku deployt werden kann.
+
+01.03.2024: Slides und Demo für Abschlusspräsentation vorbereitet
